@@ -1,11 +1,31 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import VuexPersistence from 'vuex-persist';
+import {IChatTypes} from '@/types/chat.types';
 
 Vue.use(Vuex);
 
+const debug = process.env.NODE_ENV !== 'production';
+
+const vuexLocal = new VuexPersistence<IChatTypes>({
+  storage: window.localStorage,
+});
+
 export default new Vuex.Store({
   state: {
-
+    loading: false,
+    sending: false,
+    error: null,
+    user: [],
+    reconnect: false,
+    activeRoom: null,
+    rooms: [],
+    users: [],
+    messages: [],
+    userTyping: null,
+  },
+  getters: {
+    hasError: (state: IChatTypes) => !!state.error,
   },
   mutations: {
 
@@ -13,4 +33,6 @@ export default new Vuex.Store({
   actions: {
 
   },
+  plugins: [vuexLocal.plugin],
+  strict: debug,
 });
