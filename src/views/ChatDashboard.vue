@@ -54,6 +54,6 @@
   })
   export default class ChatDashboard extends Vue {
     @Getter('loading')
-    private loading: IChatTypes['loading'] | undefined;
+    private loading: IChatTypes['loading'];
   }
 </script>

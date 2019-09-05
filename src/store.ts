@@ -19,10 +19,10 @@ export default new Vuex.Store({
   state: {
     loading: false,
     sending: false,
-    error: '',
-    user: undefined,
+    error: null,
+    user: null,
     reconnect: false,
-    activeRoom: undefined,
+    activeRoom: null,
     rooms: [],
     users: [],
     messages: [],
@@ -77,7 +77,7 @@ export default new Vuex.Store({
   },
   mutations: {
     loginInitial(state) {
-      state.error = '';
+      state.error = null;
       state.loading = true;
     },
     setError(state, error) {
@@ -118,11 +118,11 @@ export default new Vuex.Store({
       state.userTyping = userId;
     },
     reset(state) {
-      state.error = '';
+      state.error = null;
       state.users = [];
       state.messages = [];
       state.rooms = [];
-      state.user = undefined;
+      state.user = null;
     },
   },
   plugins: [vuexLocal.plugin],

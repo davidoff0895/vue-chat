@@ -2,7 +2,7 @@ interface IChatTypes {
   loading: boolean;
   sending: boolean;
   error: string;
-  user?: IUser;
+  user: IUser;
   reconnect: boolean;
   activeRoom?: IRoom;
   rooms: IRoom[];
@@ -16,23 +16,32 @@ interface IUser {
   name: string;
   username: string;
   presence: IPresence;
+  rooms: IRoom[];
+  subscribeToRoom(option: any): any;
 }
 
 interface IMessage {
-  name?: string;
+  name: string;
   text: string;
   username: string;
   date: string;
+  sender: ISender;
+  senderId: string;
+  createdAt: string;
 }
 
 interface IRoom {
   id: string;
-  name?: string;
+  name: string;
   users: IUser[];
 }
 
 interface IPresence {
   state: string;
+}
+
+interface ISender {
+  name: string;
 }
 
 export {

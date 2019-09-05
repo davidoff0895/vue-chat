@@ -25,9 +25,9 @@
   })
   export default class UserList extends Vue {
     @Getter('loading')
-    private loading: IChatTypes['loading'] | undefined;
+    private loading: IChatTypes['loading'];
     @Getter('users')
-    private users: IChatTypes['users'] | undefined;
+    private users: IChatTypes['users'];
 
     private statusColor(status: string) {
       return status === 'online' ? 'success' : 'warning';

@@ -25,8 +25,8 @@
   })
   export default class RoomList extends Vue {
     @Getter('rooms')
-    private rooms: IChatTypes['rooms'] | undefined;
+    private rooms: IChatTypes['rooms'];
     @Getter('activeRoom')
-    private activeRoom: IChatTypes['activeRoom'] | undefined;
+    private activeRoom: IChatTypes['activeRoom'];
   }
 </script>

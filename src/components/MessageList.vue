@@ -30,7 +30,7 @@
   })
   export default class MessageList extends Vue {
     @Getter('messages')
-    private messages: IChatTypes['messages'] | undefined;
+    private messages: IChatTypes['messages'];
   }
 </script>
 

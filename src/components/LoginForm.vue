@@ -3,7 +3,7 @@
     <h5 class="text-center">Chat Login</h5>
     <hr>
     <b-form @submit.prevent="onSubmit">
-      <b-alert variant="danger" :show="!!error">{{ error }} </b-alert>
+      <b-alert variant="danger" :show="error">{{ error }} </b-alert>
 
       <b-form-group id="userInputGroup"
                     label="User Name"
@@ -40,9 +40,9 @@
   })
   export default class LoginForm extends Vue {
     @Getter('loading')
-    private loading: IChatTypes['loading'] | undefined;
+    private loading: IChatTypes['loading'];
     @Getter('error')
-    private error: IChatTypes['error'] | undefined;
+    private error: IChatTypes['error'];
 
     @Action('login')
     private login: any;

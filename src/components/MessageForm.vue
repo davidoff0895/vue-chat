@@ -3,7 +3,7 @@
     <small class="text-muted">@{{ user.username }}</small>
     <b-form @submit.prevent="onSubmit" class="ld-over" v-bind:class="{ running: sending }">
       <div class="ld ld-ring ld-spin"></div>
-      <b-alert variant="danger" :show="error.length">{{ error }} </b-alert>
+      <b-alert variant="danger" :show="error">{{ error }} </b-alert>
       <b-form-group>
         <b-form-input id="message-input"
                       type="text"
@@ -35,12 +35,12 @@
     @Getter('user')
     private user: IChatTypes['user'];
     @Getter('sending')
-    private sending: IChatTypes['sending'] | undefined;
+    private sending: IChatTypes['sending'];
     @Getter('error')
-    private error: IChatTypes['error'] | undefined;
+    private error: IChatTypes['error'];
     @Getter('activeRoom')
-    private activeRoom: IChatTypes['activeRoom'] | undefined;
+    private activeRoom: IChatTypes['activeRoom'];
 
-    private message: string = '';
+    private message: string = null;
   }
 </script>
