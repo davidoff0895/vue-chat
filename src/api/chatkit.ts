@@ -59,7 +59,24 @@ async function subscribeToRoom(roomId: string) {
   return activeRoom;
 }
 
+async function sendMessage(text: string) {
+  return  await currentUser.sendMessage({
+    text,
+    roomId: activeRoom.id,
+  });
+}
+
+export function isTyping(roomId: string) {
+  currentUser.isTypingIn({ roomId });
+}
+
+function disconnectUser() {
+  currentUser.disconnect();
+}
+
 export default {
   connectUser,
   subscribeToRoom,
+  sendMessage,
+  disconnectUser,
 };

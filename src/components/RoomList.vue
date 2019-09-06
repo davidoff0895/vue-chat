@@ -17,8 +17,8 @@
 <script lang="ts">
   import Vue from 'vue';
   import Component from 'vue-class-component';
-  import { Getter } from 'vuex-class';
-  import { IChatTypes } from '@/types/chat.types';
+  import { Getter, Action } from 'vuex-class';
+  import {IChatTypes, IRoom} from '@/types/chat.types';
 
   @Component({
     name: 'room-list',
@@ -28,5 +28,12 @@
     private rooms: IChatTypes['rooms'];
     @Getter('activeRoom')
     private activeRoom: IChatTypes['activeRoom'];
+
+    @Action('changeRoom')
+    private changeRoom: any;
+
+    private onChange(room: IRoom) {
+      this.changeRoom(room.id);
+    }
   }
 </script>

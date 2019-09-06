@@ -17,7 +17,11 @@ interface IUser {
   username: string;
   presence: IPresence;
   rooms: IRoom[];
+
   subscribeToRoom(option: any): any;
+  sendMessage(params: any): any;
+  isTypingIn(params: any): any;
+  disconnect(): any;
 }
 
 interface IMessage {

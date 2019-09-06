@@ -74,6 +74,32 @@ export default new Vuex.Store({
         commit('setLoading', false);
       }
     },
+    async changeRoom({ commit }, roomId) {
+      try {
+        const { id, name } = await chatkit.subscribeToRoom(roomId);
+        commit('setActiveRoom', { id, name });
+      } catch (error) {
+        const message = error.message || error.info.error_description;
+        commit('setError', message);
+      }
+    },
+    async sendMessage({ commit }, message) {
+      try {
+        commit('setError', '');
+        commit('setSending', true);
+        return  await chatkit.sendMessage(message);
+      } catch (error) {
+        const err = error.message || error.info.error_description;
+        commit('setError', err);
+      } finally {
+        commit('setSending', false);
+      }
+    },
+    async logout({ commit }) {
+      commit('reset');
+      chatkit.disconnectUser();
+      window.localStorage.clear();
+    },
   },
   mutations: {
     loginInitial(state) {

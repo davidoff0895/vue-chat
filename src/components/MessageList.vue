@@ -16,6 +16,9 @@
         </div>
       </div>
     </div>
+    <div class="user-typing">
+      <small class="text-muted" v-if="userTyping">@{{ userTyping }} is typing....</small>
+    </div>
   </div>
 </template>
 
@@ -31,6 +34,8 @@
   export default class MessageList extends Vue {
     @Getter('messages')
     private messages: IChatTypes['messages'];
+    @Getter('userTyping')
+    private userTyping: IChatTypes['userTyping'];
   }
 </script>
 
