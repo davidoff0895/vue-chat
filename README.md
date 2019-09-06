@@ -1,39 +1,16 @@
 # vue-chatkit
 
-## Project setup
+Chat application for users to communicate in rooms.
+Login of users: ```John Doe 1```, ```John Doe 2```, ```John Doe 3```
+
+### Life demo
+http://davidoff0895.github.io
+
+## Project start
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Example of interface
+![vue-chat-interface](https://user-images.githubusercontent.com/29586170/64472851-2857e480-d16d-11e9-966b-59822c7dd718.png)
