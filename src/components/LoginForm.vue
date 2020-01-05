@@ -2,7 +2,7 @@
   <div class="login-form">
     <h5 class="text-center">Chat Login</h5>
     <hr>
-    <b-form @submit.prevent="onSubmit">
+    <b-form @submit="onSubmit">
       <b-alert variant="danger" :show="!!error">{{ error }} </b-alert>
 
       <b-form-group id="userInputGroup"
