@@ -1,7 +1,7 @@
 // @ts-ignore
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import moment from 'moment';
-import store from '../store';
+import store from '../store/store';
 import {IMessage, IRoom, IUser} from '@/types/chat.types';
 
 const INSTANCE_LOCATOR = process.env.VUE_APP_INSTANCE_LOCATOR;

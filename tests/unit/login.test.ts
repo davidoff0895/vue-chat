@@ -1,19 +1,22 @@
 import {
   shallowMount,
-  createLocalVue
+  createLocalVue,
 } from '@vue/test-utils';
 import Vuex from 'vuex';
-import LoginForm from '@/components/LoginForm.vue';
 import Vue from 'vue';
+import {cloneDeep} from 'lodash';
 import exceptionElements from './exceptionElements';
+import LoginForm from '@/components/LoginForm.vue';
+import {storeOptions} from '@/store/store-config';
 
 Vue.config.ignoredElements = exceptionElements;
 const localVue = createLocalVue();
 
 localVue.use(Vuex);
 
-const error: string = 'Error'
+const error: string = 'Error';
 
+const appStore = new Vuex.Store(cloneDeep(storeOptions));
 
 describe('LoginForm.vue', () => {
   let actions: any;
@@ -47,6 +50,11 @@ describe('LoginForm.vue', () => {
       store,
       localVue,
     });
-    expect(wrapper.text()).toMatch(error)
+    expect(wrapper.text()).toMatch(error);
+  });
+  it('login action called loginInitial', () => {
+    expect(appStore.state.loading).toBe(false);
+    appStore.commit('setLoading', true);
+    expect(appStore.state.loading).toBe(true);
   });
 });

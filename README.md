@@ -9,7 +9,8 @@ http://davidoff0895.github.io
 ## Project start
 ```
 npm install
-npm run serve
+npm start
+open http://localhost:8080 in your browser
 ```
 
 ### Example of interface
