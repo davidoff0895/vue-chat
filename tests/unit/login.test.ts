@@ -24,6 +24,7 @@ describe('LoginForm.vue', () => {
   let getters: any;
 
   beforeEach(() => {
+    window.localStorage.clear();
     actions = {
       login: jest.fn(),
     };
@@ -35,6 +36,9 @@ describe('LoginForm.vue', () => {
       actions,
       getters,
     });
+  });
+  afterEach(() => {
+    window.localStorage.clear();
   });
   it('action Login called', () => {
     const wrapper = shallowMount(LoginForm, {
