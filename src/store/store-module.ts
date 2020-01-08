@@ -155,7 +155,7 @@ const mutations: MutationTree<IChatTypes> = {
   },
 };
 
-export const storeOptions: StoreOptions<any> = {
+export const storeModule: StoreOptions<any> = {
   state,
   getters,
   actions,

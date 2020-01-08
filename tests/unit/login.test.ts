@@ -7,7 +7,7 @@ import Vue from 'vue';
 import {cloneDeep} from 'lodash';
 import exceptionElements from './exceptionElements';
 import LoginForm from '@/components/LoginForm.vue';
-import {storeOptions} from '@/store/store-config';
+import {storeModule} from '@/store/store-module';
 
 Vue.config.ignoredElements = exceptionElements;
 const localVue = createLocalVue();
@@ -16,7 +16,7 @@ localVue.use(Vuex);
 
 const error: string = 'Error';
 
-const appStore = new Vuex.Store(cloneDeep(storeOptions));
+const appStore = new Vuex.Store(cloneDeep(storeModule));
 
 describe('LoginForm.vue', () => {
   let actions: any;
@@ -52,7 +52,7 @@ describe('LoginForm.vue', () => {
     });
     expect(wrapper.text()).toMatch(error);
   });
-  it('login action called loginInitial', () => {
+  it('state of loading toggle when commit setLoading', () => {
     expect(appStore.state.loading).toBe(false);
     appStore.commit('setLoading', true);
     expect(appStore.state.loading).toBe(true);

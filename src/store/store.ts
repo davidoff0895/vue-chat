@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import {storeOptions} from '@/store/store-config';
+import {storeModule} from '@/store/store-module';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store(storeOptions);
+export default new Vuex.Store(storeModule);
